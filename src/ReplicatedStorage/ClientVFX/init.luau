@@ -18,19 +18,19 @@ local ClientVFX = {} :: ClientVfxImpl
 --function that plays the effect normally
 function ClientVFX.PlayEffect(Player:number, Vfx:number, Duration:number,Part:number) : ()
     if not Indexer.Loaded then
-        error("Tried to play vfx before client was loaded")
+        warn("Tried to play vfx before client was loaded")
         return 
     end
     local Plr = ClientBridge.GetPlayerById(Player)
     if not Plr then
-        error("Player doesnt exist?!!?")
+        warn("Player doesnt exist?!!?")
         return 
     end
     local VfxPart = Indexer.GetVfxByIndex(Vfx):Clone()
     local PartName = Indexer.GetPartById(Part)
     local Character =  Plr.Character
     if not Character then
-        error("Player doesnt have a character at the moment.")
+        warn("Player doesnt have a character at the moment.")
         return
     end
     local AttachPart = Character:FindFirstChild(PartName) :: BasePart
@@ -44,7 +44,7 @@ function ClientVFX.PlayEffect(Player:number, Vfx:number, Duration:number,Part:nu
     for _, Child in ipairs(VfxPart:GetDescendants()) do
         if Child:IsA("ParticleEmitter") then
             task.spawn(function()
-                --CAUSES A WEIRD ERROR IF I DONT DEFINE EMITDELAY/COUNT/EMIT DURATION LIKE THIS
+                --CAUSES A WEIRD warn IF I DONT DEFINE EMITDELAY/COUNT/EMIT DURATION LIKE THIS
                 local EmitDelay = (Child:GetAttribute("EmitDelay") :: number) or 0
                 local EmitCount = (Child:GetAttribute("EmitCount") :: number) or 0
                 local EmitDuration = (Child:GetAttribute("EmitDuration") :: number) or 0
@@ -69,19 +69,19 @@ end
 --function that plays the effect with only rotation
 function ClientVFX.PlayEffectRotation(Player:number, Vfx:number, Duration:number,Part:number, Orientation:{X:number,Y:number,Z:number}) : ()
     if not Indexer.Loaded then
-        error("Tried to play vfx before client was loaded")
+        warn("Tried to play vfx before client was loaded")
         return 
     end
     local Plr = ClientBridge.GetPlayerById(Player)
     if not Plr then
-        error("Player doesnt exist?!!?")
+        warn("Player doesnt exist?!!?")
         return 
     end
     local VfxPart = Indexer.GetVfxByIndex(Vfx):Clone()
     local PartName = Indexer.GetPartById(Part)
     local Character =  Plr.Character
     if not Character then
-        error("Player doesnt have a character at the moment.")
+        warn("Player doesnt have a character at the moment.")
         return
     end
     local AttachPart = Character:FindFirstChild(PartName) :: BasePart
@@ -96,7 +96,7 @@ function ClientVFX.PlayEffectRotation(Player:number, Vfx:number, Duration:number
     for _, Child in ipairs(VfxPart:GetDescendants()) do
         if Child:IsA("ParticleEmitter") then
             task.spawn(function()
-                --CAUSES A WEIRD ERROR IF I DONT DEFINE EMITDELAY/COUNT/EMIT DURATION LIKE THIS
+                --CAUSES A WEIRD warn IF I DONT DEFINE EMITDELAY/COUNT/EMIT DURATION LIKE THIS
                 local EmitDelay = (Child:GetAttribute("EmitDelay") :: number) or 0
                 local EmitCount = (Child:GetAttribute("EmitCount") :: number) or 0
                 local EmitDuration = (Child:GetAttribute("EmitDuration") :: number) or 0
@@ -121,19 +121,19 @@ end
 --function that plays the effect with position and rotation
 function ClientVFX.PlayEffectRotationAndPosition(Player:number, Vfx:number, Duration:number,Part:number, Orientation:{X:number,Y:number,Z:number}, Position:{X:number,Y:number,Z:number}) : ()
     if not Indexer.Loaded then
-        error("Tried to play vfx before client was loaded")
+        warn("Tried to play vfx before client was loaded")
         return 
     end
     local Plr = ClientBridge.GetPlayerById(Player)
     if not Plr then
-        error("Player doesnt exist?!!?")
+        warn("Player doesnt exist?!!?")
         return 
     end
     local VfxPart = Indexer.GetVfxByIndex(Vfx):Clone()
     local PartName = Indexer.GetPartById(Part)
     local Character =  Plr.Character
     if not Character then
-        error("Player doesnt have a character at the moment.")
+        warn("Player doesnt have a character at the moment.")
         return
     end
     local AttachPart = Character:FindFirstChild(PartName) :: BasePart
@@ -149,7 +149,7 @@ function ClientVFX.PlayEffectRotationAndPosition(Player:number, Vfx:number, Dura
     for _, Child in ipairs(VfxPart:GetDescendants()) do
         if Child:IsA("ParticleEmitter") then
             task.spawn(function()
-                --CAUSES A WEIRD ERROR IF I DONT DEFINE EMITDELAY/COUNT/EMIT DURATION LIKE THIS
+                --CAUSES A WEIRD warn IF I DONT DEFINE EMITDELAY/COUNT/EMIT DURATION LIKE THIS
                 local EmitDelay = (Child:GetAttribute("EmitDelay") :: number) or 0
                 local EmitCount = (Child:GetAttribute("EmitCount") :: number) or 0
                 local EmitDuration = (Child:GetAttribute("EmitDuration") :: number) or 0
@@ -174,19 +174,19 @@ end
 --function that plays the effect with only position
 function ClientVFX.PlayEffectPosition(Player:number, Vfx:number, Duration:number,Part:number, Position:{X:number,Y:number,Z:number}) : ()
     if not Indexer.Loaded then
-        error("Tried to play vfx before client was loaded")
+        warn("Tried to play vfx before client was loaded")
         return 
     end
     local Plr = ClientBridge.GetPlayerById(Player)
     if not Plr then
-        error("Player doesnt exist?!!?")
+        warn("Player doesnt exist?!!?")
         return 
     end
     local VfxPart = Indexer.GetVfxByIndex(Vfx):Clone()
     local PartName = Indexer.GetPartById(Part)
     local Character =  Plr.Character
     if not Character then
-        error("Player doesnt have a character at the moment.")
+        warn("Player doesnt have a character at the moment.")
         return
     end
     local AttachPart = Character:FindFirstChild(PartName) :: BasePart
@@ -201,7 +201,7 @@ function ClientVFX.PlayEffectPosition(Player:number, Vfx:number, Duration:number
     for _, Child in ipairs(VfxPart:GetDescendants()) do
         if Child:IsA("ParticleEmitter") then
             task.spawn(function()
-                --CAUSES A WEIRD ERROR IF I DONT DEFINE EMITDELAY/COUNT/EMIT DURATION LIKE THIS
+                --CAUSES A WEIRD warn IF I DONT DEFINE EMITDELAY/COUNT/EMIT DURATION LIKE THIS
                 local EmitDelay = (Child:GetAttribute("EmitDelay") :: number) or 0
                 local EmitCount = (Child:GetAttribute("EmitCount") :: number) or 0
                 local EmitDuration = (Child:GetAttribute("EmitDuration") :: number) or 0
