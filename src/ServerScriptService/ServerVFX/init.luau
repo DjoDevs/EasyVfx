@@ -18,7 +18,7 @@ local ServerVFX = {} :: ServerVfxImpl
 -- tells all clients to play the vfx
 function ServerVFX.ClientVFX(Player:Player, Vfx:string, Duration:number,Part:string) : ()
     if not Indexer.Loaded then
-        error("Server not loaded yet!")
+        warn("Server not loaded yet!")
         return
     end
     Server.ClientVFX.FireAll({
@@ -32,7 +32,7 @@ end
 -- tells all clients to play the vfx with rotation
 function ServerVFX.ClientVFXRotation(Player:Player, Vfx:string, Duration:number,Part:string, Orientation:{X:number,Y:number,Z:number}): ()
     if not Indexer.Loaded then
-        error("Server not loaded yet!")
+        warn("Server not loaded yet!")
         return
     end
     Server.ClientVFXRotation.FireAll({
@@ -47,7 +47,7 @@ end
 -- tells all clients to play the vfx with rotation and position
 function ServerVFX.ClientVFXRotationAndPosition(Player:Player, Vfx:string, Duration:number,Part:string, Orientation:{X:number,Y:number,Z:number}, Position:{X:number,Y:number,Z:number}): ()
     if not Indexer.Loaded then
-        error("Server not loaded yet!")
+        warn("Server not loaded yet!")
         return
     end
     Server.ClientVFXRotationAndPosition.FireAll({
@@ -63,7 +63,7 @@ end
 -- tells all clients to play the vfx with position
 function ServerVFX.ClientVFXPosition(Player:Player, Vfx:string, Duration:number,Part:string, Position:{X:number,Y:number,Z:number}): ()
     if not Indexer.Loaded then
-        error("Server not loaded yet!")
+        warn("Server not loaded yet!")
         return
     end
     Server.ClientVFXPosition.FireAll({
