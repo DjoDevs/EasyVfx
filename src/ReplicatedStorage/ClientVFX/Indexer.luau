@@ -126,7 +126,7 @@ function Indexer.GetVfxByIndex(Id: number): Instance?
 end
 
 function Indexer.RunTimeRegister(): ()
-	Indexer.RegisterVFX("FirstAttempt", 1, ReplicatedStorage.FirstAttempt) --THIS IS AN EXAMPLE
+--	Indexer.RegisterVFX("FirstAttempt", 1, ReplicatedStorage.FirstAttempt) THIS IS AN EXAMPLE
 	Indexer.Loaded = true
 end
 
