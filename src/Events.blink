@@ -1,0 +1,75 @@
+option TypesOutput = "src/ReplicatedStorage/ClientVFX/Networking/Types.luau"
+option ServerOutput = "src/ReplicatedStorage/ClientVFX/Networking/Server"
+option ClientOutput = "src/ReplicatedStorage/ClientVFX/Networking/Client"
+
+struct PositionOffset {
+    X:f16,
+    Y:f16,
+    Z:f16
+}
+
+struct Orientation {
+    X:i16,
+    Y:i16,
+    Z:i16
+}
+
+struct VfxData {
+    plr:u8,
+    Vfx:u16,
+    Duration:f16,
+    Part:u8
+}
+
+struct OrientationData {
+    plr:u8,
+    Vfx:u16,
+    Duration:f16,
+    Part:u8,
+    Orientation: Orientation
+}
+
+struct OrientationAndPositionData {
+    plr:u8,
+    Vfx:u16,
+    Duration:f16,
+    Part:u8,
+    Orientation: Orientation,
+    Position: PositionOffset
+}
+
+struct PositionData {
+    plr:u8,
+    Vfx:u16,
+    Duration:f16,
+    Part:u8,
+    Position: PositionOffset
+}
+
+event ClientVFX {
+    From: Server,
+    Type: Unreliable,
+    Call: SingleAsync,
+    Data: VfxData
+}
+
+event ClientVFXRotation {
+    From: Server,
+    Type: Unreliable,
+    Call: SingleAsync,
+    Data: OrientationData
+}
+
+event ClientVFXRotationAndPosition {
+    From: Server,
+    Type: Unreliable,
+    Call: SingleAsync,
+    Data: OrientationAndPositionData
+}
+
+event ClientVFXPosition {
+    From: Server,
+    Type: Unreliable,
+    Call: SingleAsync,
+    Data: PositionData
+}

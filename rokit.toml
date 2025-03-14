@@ -6,4 +6,4 @@
 [tools]
 wally-package-types = "JohnnyMorganz/wally-package-types@1.4.2"
 darklua = "seaofvoices/darklua@0.16.0"
-blink = "1Axen/blink@0.15.5"
+blink = "1Axen/blink@0.15.6"
