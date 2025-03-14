@@ -8,9 +8,11 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 require(ReplicatedStorage.Source.ClientVFX.Indexer)
 require(ReplicatedStorage.Source.ClientVFX.Networking.Server)
 require(ReplicatedStorage.Source.ClientVFX.Networking.ServerBridge)
-local a = require(script.Parent)
+local ServerVfx = require(script.Parent)
 
-task.wait(3)
+--[[
+EXAMPLE USAGE!!!
+
 local rotation = {
     X = 50,
     Y = 90,
@@ -21,4 +23,11 @@ local position = {
     Y = 5,
     Z = 5
 }
-a.ClientVFX(Players:WaitForChild("djolefuull2", 100), "FirstAttempt", 10, "HumanoidRootPart")
+ServerVfx.ClientVFX(Players:WaitForChild("djolefuull2", 100), "FirstAttempt", 10, "HumanoidRootPart")
+
+ServerVfx.ClientVFXPosition(Players:WaitForChild("djolefuull2", 100), "FirstAttempt", 10, "HumanoidRootPart", position)
+
+ServerVfx.ClientVFXPosition(Players:WaitForChild("djolefuull2", 100), "FirstAttempt", 10, "HumanoidRootPart", rotation)
+
+ServerVfx.ClientVFXPosition(Players:WaitForChild("djolefuull2", 100), "FirstAttempt", 10, "HumanoidRootPart", rotation, position)
+]]
